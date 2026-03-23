@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 98%;
+    --foreground: 20 15% 15%;
+
+    --card: 40 25% 97%;
+    --card-foreground: 20 15% 15%;
+
+    --popover: 40 33% 98%;
+    --popover-foreground: 20 15% 15%;
+
+    --primary: 145 45% 28%;
+    --primary-foreground: 40 33% 98%;
+
+    --secondary: 30 80% 55%;
+    --secondary-foreground: 40 33% 98%;
+
+    --muted: 35 20% 93%;
+    --muted-foreground: 20 10% 45%;
+
+    --accent: 30 80% 55%;
+    --accent-foreground: 40 33% 98%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 35 18% 88%;
+    --input: 35 18% 88%;
+    --ring: 145 45% 28%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 40 25% 96%;
+    --sidebar-foreground: 20 15% 25%;
+    --sidebar-primary: 145 45% 28%;
+    --sidebar-primary-foreground: 40 33% 98%;
+    --sidebar-accent: 35 20% 93%;
+    --sidebar-accent-foreground: 20 15% 15%;
+    --sidebar-border: 35 18% 88%;
+    --sidebar-ring: 145 45% 28%;
+
+    /* Custom tokens */
+    --hero-overlay: 20 15% 10%;
+    --section-warm: 38 40% 95%;
+    --section-green: 145 25% 95%;
+    --gold: 42 85% 55%;
+    --gold-foreground: 20 15% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer utilities {
+  .section-warm {
+    background-color: hsl(var(--section-warm));
+  }
+  .section-green {
+    background-color: hsl(var(--section-green));
+  }
+}
+
+/* Scroll reveal animation */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out both;
+}
